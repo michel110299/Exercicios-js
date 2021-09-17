@@ -6,12 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/custom.css"  media="screen,projection"/>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <title>Tranca</title>
     </head>
     <body>
         <header></header>
-        <main>
+        <main class="margintop">
             <div class="row">
                 <div class="col s12 m4 offset-m2">
                     <div class="card blue-grey darken-1">
@@ -23,14 +24,16 @@
                         </div>
                         <div class="card-action">
                             <input id="T1QtdCartas" type="number" placeholder="Quantidade de cartas"/>
-                            <input id="T1TotalPtsCanastra" type="number" placeholder="total pontos canastra"/>
+                            <input id="T1TotalPtsCanastra" type="number" placeholder="Total pontos canastra"/>
                             <input id="T1QtdRed" type="number" placeholder="3 vermelho"/>
                             <input id="T1QtdBlack" type="number" placeholder="3 preto"/>
-                            <label>Morto</label>
-                            <select id="T1Morto">
-                                <option value="1">Sim</option>
-                                <option value="2"selected>Não</option>
-                            </select>
+                            <div class="input-field">
+                                <select id="T1Morto">
+                                    <option value="1">Sim</option>
+                                    <option value="2"selected>Não</option>
+                                </select>
+                                <label>Morto</label>
+                            </div>
                             <div class="center">
                                 <a href="#" id="Team1">Adicionar pontuação</a>
                             </div>
@@ -47,14 +50,16 @@
                         </div>
                         <div class="card-action">
                             <input id="T2QtdCartas" type="number" placeholder="Quantidade de cartas"/>
-                            <input id="T2TotalPtsCanastra" type="number" placeholder="total pontos canastra"/>
+                            <input id="T2TotalPtsCanastra" type="number" placeholder="Total pontos canastra"/>
                             <input id="T2QtdRed" type="number" placeholder="3 vermelho"/>
                             <input id="T2QtdBlack" type="number" placeholder="3 preto"/>
-                            <label>Morto</label>
-                            <select id="T2Morto">
-                                <option value="1">Sim</option>
-                                <option value="2"selected>Não</option>
-                            </select>
+                            <div class="input-field white-text">
+                                <select id="T2Morto">
+                                    <option value="1">Sim</option>
+                                    <option value="2"selected>Não</option>
+                                </select>
+                                <label>Morto</label>
+                            </div>
                             <div class="center">
                                 <a href="#" id="Team2">Adicionar pontuação</a>
                             </div>
