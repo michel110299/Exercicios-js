@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .center{
+            text-align: center;
+        }
+        body{
+            background-color: rgb(0, 162, 255);
+        }
+        .body2{
+            background-color: white;
+            width: 50%;
+            height: auto;
+            min-height: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            align-items: center;
+            border-radius: 25px;
+            padding: 20px;
+        }
+        input{
+            margin: 10px;
+            margin-left: 1px;
+            width: 50%;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1 class="center">Analisador de numeros</h1>
+    <div class="body2 center">
+        <span>Numero(entre 1 e 100): </span>
+        <input onchange="Verificar()" onfocus="this.value=''" type="number" id="numero"/>
+        <br>
+        <div class="center" id="exibir">
+            
+        </div>
+    </div>
+    
+    <script>
+        var listnumero = [];
+        function Verificar(){
+            var numero = Number(document.getElementById("numero").value)
+            if(numero>100 || numero<1){
+                alert("não vai moço é só entre 1 e 100")
+            }
+            else{
+                exibicao = document.getElementById("exibir")
+                if(Verificarigualdade(numero)){
+                    listnumero.push(numero)
+                    exibicao.innerHTML =""
+                    for(x=0;x<listnumero.length;x++){
+                        exibicao.innerHTML += listnumero[x] + ",    "
+                    }
+                    exibicao.innerHTML += "<br> Ao todo temos: " + listnumero.length + " cadastrados"
+                    exibicao.innerHTML += "<br> O maior numero: " + Nmaior() + ""
+                    exibicao.innerHTML += "<br> O menor numero: " + Nmenor() + ""
+                    exibicao.innerHTML += "<br> A soma dos numeros: " + Nsoma() + ""
+                    exibicao.innerHTML += "<br> A media dos valores: " + Nmedia() + ""
+                }
+                else{
+                    alert("esse numero ja está na lista moço")
+                }
+            }
+        }
+        function Verificarigualdade(numero){
+            for(x=0;x<listnumero.length;x++){
+                if(listnumero[x] == numero){
+                    return false
+                }
+            }
+            return true
+        }
+        function Nmaior(){
+            maior = 0
+            for(x=0;x<listnumero.length;x++){
+                if(x==0){
+                    maior = listnumero[x]
+                }
+                else{
+                    if(listnumero[x]>maior){
+                        maior = listnumero[x]
+                    }
+                }
+            }
+            return maior
+        }
+        function Nmenor(){
+            menor = 0
+            for(x=0;x<listnumero.length;x++){
+                if(x==0){
+                    menor = listnumero[x]
+                }
+                else{
+                    if(listnumero[x]<menor){
+                        menor = listnumero[x]
+                    }
+                }
+            }
+            return menor
+        }
+        function Nsoma(){
+            soma = 0
+            for(x=0;x<listnumero.length;x++){
+                soma += listnumero[x]
+            }
+            return soma
+        }
+        function Nmedia(){
+            media = Nsoma()/listnumero.length
+            return media
+        }
+    </script>
+</body>
+</html>

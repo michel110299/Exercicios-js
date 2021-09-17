@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>horario do dia</title>
+    <style>
+        img{
+            border-radius: 200px;
+            height:200px;
+            width:200px;
+            margin-top: 20px;
+            padding: 5%;
+        }
+        body{
+            background-color: #542964;
+        }
+        .exibeIMG{
+            background-color: white;
+            width: 60%; 
+            margin-left: auto;
+            margin-right: auto;
+            align-items: center;
+            border-radius: 25px;
+        }
+        .center{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="center">Hora do dia</h1>
+    <div class="exibeIMG center" id="exibiHora">
+
+    </div>
+    
+    <script>
+        var data = new Date();
+        var hora = Number(data.getHours())
+        var corpo = document.getElementsByTagName('body')[0]
+        
+        exibiHora = document.getElementById("exibiHora")
+
+        if (hora <=6){
+            exibiHora.innerHTML += '<img src="img/madrugada.jpg" alt="Madrugada" > <br> <h1> Vá dormir!!! Agora são ' + hora + ', horas da manha, tenha uma boa noite... </h1> '
+            corpo.style.background = '#13061d'
+        }
+        else if(hora <=12){
+            exibiHora.innerHTML +=  '<img src="img/manha.jpg" alt="Manha" > <br> <h1> Bom dia! Agora são ' + hora + ' horas </h1>'
+            corpo.style.background = '#d3c228'
+        }
+        else if(hora <= 18){
+            exibiHora.innerHTML += '<img src="img/tarde.png" alt="Tarde" <br>  <h1> Boa tarde! agora são ' + hora + ' horas </h1>>'
+            corpo.style.background = '#ff9900'
+        }
+        else{
+            exibiHora.innerHTML += '<img src="img/noite.jpg" alt="Tarde" > <br> <h1>Boa noite! agora são ' + hora + ' horas </h1>'
+            corpo.style.background = '#542964'
+        }
+        
+
+    </script>
+</body>
+</html>

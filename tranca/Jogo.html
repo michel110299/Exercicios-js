@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <title>Tranca</title>
+        
+    </head>
+    <body>
+
+        <header>
+
+        </header>
+
+        <main>
+            <div class="row">
+                <div class="col s12 m4 offset-m2">
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title center">Michel/Yasmin </span>
+                            <hr>
+                            <h5 class="center">Pontuação</h5>
+                            <p class="center" id="resultadoTeam1"></p>
+                        </div>
+                        <div class="card-action">
+                            <input id="T1QtdCartas" type="number" placeholder="Quantidade de cartas"/>
+                            <input id="T1TotalPtsCanastra" type="number" placeholder="total pontos canastra"/>
+                            <input id="T1QtdRed" type="number" placeholder="3 vermelho"/>
+                            <input id="T1QtdBlack" type="number" placeholder="3 preto"/>
+                            <label>Morto</label>
+                            <select id="T1Morto">
+                                <option value="1">Sim</option>
+                                <option value="2"selected>Não</option>
+                            </select>
+                            <div class="center">
+                                <a href="#" id="Team1">Adicionar pontuação</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title center">Ronaldo/Sueli</span>
+                            <hr>
+                            <h5 class="center">Pontuação</h5>
+                            <p class="center" id="resultadoTeam2"></p>
+                        </div>
+                        <div class="card-action">
+                            <input id="T2QtdCartas" type="number" placeholder="Quantidade de cartas"/>
+                            <input id="T2TotalPtsCanastra" type="number" placeholder="total pontos canastra"/>
+                            <input id="T2QtdRed" type="number" placeholder="3 vermelho"/>
+                            <input id="T2QtdBlack" type="number" placeholder="3 preto"/>
+                            <label>Morto</label>
+                            <select id="T2Morto">
+                                <option value="1">Sim</option>
+                                <option value="2"selected>Não</option>
+                            </select>
+                            <div class="center">
+                                <a href="#" id="Team2">Adicionar pontuação</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+
+        </footer>
+
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+
+        <script>
+
+            $('select').formSelect();
+
+            var team1 = 0 
+            var team2 = 0 
+
+            function pontuacao(QtdCartas,TotalPtsCanastra,QtdRed,QtdBlack,Morto){
+                
+                var resultado = 0
+                if( TotalPtsCanastra <100){
+                    resultado = (((parseInt(TotalPtsCanastra) + (parseInt(QtdCartas)*10)) - (100*parseInt(QtdRed))) - (parseInt(QtdBlack)*100))
+                }else{
+                    resultado = (((parseInt(TotalPtsCanastra) + (parseInt(QtdCartas)*10)) + (100*parseInt(QtdRed))) - (parseInt(QtdBlack)*100))
+                }
+
+                if (Morto == 2){
+                    return resultado-100
+                }
+                    return resultado
+            }
+
+            
+            $( "#Team1" ).click(function() {
+
+                var QtdCartas = $("#T1QtdCartas").val()
+                var TotalPtsCanastra = $("#T1TotalPtsCanastra").val()
+                var QtdRed = $("#T1QtdRed").val()
+                var QtdBlack = $("#T1QtdBlack").val()
+                var Morto = $("#T1Morto").val()
+
+                $("#T1QtdCartas").val("");
+                $("#T1TotalPtsCanastra").val("")
+                $("#T1QtdRed").val("")
+                $("#T1QtdBlack").val("")
+                $("#T1Morto").val("")
+
+                if (QtdCartas != "" && TotalPtsCanastra != "" && QtdRed != "" && QtdBlack !=""){
+                    team1 += pontuacao(QtdCartas,TotalPtsCanastra,QtdRed,QtdBlack,Morto)
+                    $("#resultadoTeam1").html(team1)
+                }
+
+                else{
+                    alert("existem campos vazios!")
+                }
+
+            });
+
+            $( "#Team2" ).click(function() {
+
+                var QtdCartas = $("#T2QtdCartas").val()
+                var TotalPtsCanastra = $("#T2TotalPtsCanastra").val()
+                var QtdRed = $("#T2QtdRed").val()
+                var QtdBlack = $("#T2QtdBlack").val()
+                var Morto = $("#T2Morto").val()
+
+                $("#T2QtdCartas").val("")
+                $("#T2TotalPtsCanastra").val("")
+                $("#T2QtdRed").val("")
+                $("#T2QtdBlack").val("")
+                $("#T2Morto").val("")
+
+                if (QtdCartas != "" && TotalPtsCanastra != "" && QtdRed != "" && QtdBlack !=""){
+                    team2 += pontuacao(QtdCartas,TotalPtsCanastra,QtdRed,QtdBlack,Morto)
+                    $("#resultadoTeam2").html(team2)
+                }
+
+                else{
+                    alert("existem campos vazios!")
+                }
+
+            });
+            
+        </script>
+    </body>
+</html>

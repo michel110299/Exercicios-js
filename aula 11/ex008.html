@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detran</title>
+</head>
+<body> 
+    <input type="number" placeholder="digite uma velocidade" name="velocidade" id="velocidade"/>
+    <button onclick="calcular()">verificar</button>
+</body>
+<script>
+
+
+
+    function calcular(){
+        var velocidade = document.getElementById('velocidade').value
+        x=0
+        while(x<50){
+            x++;
+            alert(x)
+        }
+        for(x=0 ;x<=5;x++){
+            alert(x)
+        }
+        if(velocidade == ""){
+            alert("campo está vazio")
+        }
+        else{
+            if(velocidade <= 60){
+                alert("você esta dentro das normas")
+            }
+            else if( velocidade <= 100 ){
+                alert("multado e seu carro é rapido")
+            }
+            else if( velocidade <= 200){
+                alert("multado e seu carro é uma ferrari")
+            }
+            else {
+                alert("é um foguete")
+            }
+        }
+    }
+
+    
+</script>
+</html>

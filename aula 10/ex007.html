@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>somando numeros</title>
+    <style>
+        #button{
+            margin-left: 15px;
+            margin-top:20px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1> somando valores</h1>
+    <input type="number" name="txtn1" id="txtn1"> <span id="tipo"></span> 
+    <input type="number" name="txtn2" id="txtn2">=
+    <span id="resultado"></span>
+    <br>
+    <button type="button" id = "button" onclick="somar()">somar</button>
+    <button type="button" id = "button" onclick="subtrair()">subtrair</button>
+    <button type="button" id = "button" onclick="dividir()">dividir</button>
+    <button type="button" id = "button" onclick="multiplicar()">multiplicar</button>
+    <script>
+        function calcular(tipo){
+            var valor1 = document.getElementById('txtn1').value
+            var valor2 = document.getElementById('txtn2').value
+            if(valor1 == "" || valor2 == "" ){
+                soma = "existem campos vazios"
+                var tip = document.getElementById('tipo').innerHTML = ""
+            }
+            else{
+                if(tipo == "+"){
+                    var tip = document.getElementById('tipo').innerHTML = "+"
+                    var soma = Number(valor1)+Number(valor2)
+                }
+                else if( tipo == "-"){
+                    var tip = document.getElementById('tipo').innerHTML = "-"
+                    var soma = Number(valor1)-Number(valor2)
+                }
+                else if( tipo =="/"){
+                    var tip = document.getElementById('tipo').innerHTML = "/"
+                    var soma = Number(valor1)/Number(valor2)
+                }
+                else {
+                    var tip = document.getElementById('tipo').innerHTML = "x"
+                    var soma = Number(valor1)*Number(valor2)
+                }
+            }
+            var resultado = document.getElementById('resultado').innerHTML = "<strong>" + soma + "</strong>"
+        }
+        function somar(){
+            calcular("+")
+        }
+        function subtrair(){
+            calcular("-")
+        }
+        function dividir(){
+            calcular("/")
+        }
+        function multiplicar(){
+            calcular("*")
+        }
+        
+    </script>
+</body>
+</html>

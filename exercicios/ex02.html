@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .center{
+            text-align: center;
+        }
+        body{
+            background-color: rgb(0, 162, 255);
+        }
+        .body2{
+            background-color: white;
+            width: 50%;
+            height: auto;
+            min-height: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            align-items: center;
+            border-radius: 25px;
+            padding: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1 class="center">Verificador de Idade</h1>
+    <div class="body2">
+        <span>Ano de Nascimento: </span>
+        <input type="number" id="nascimento"/>
+        <br>
+        Sexo: <input type="radio" name="sexo" value="M" id="sexoM"> Masculino <input type="radio" name="sexo" value="F" id="sexoF"> Feminino
+        <br>
+        <button onclick="Verificar()">Verificar</button>
+        <div class="center" id="exibir">
+
+        </div>
+    </div>
+    
+    <script>
+        function Verificar(){
+            var nascimento = Number(document.getElementById("nascimento").value)
+            exibicao = document.getElementById("exibir")
+            var botoes = document.getElementsByName("sexo");
+            var ano = new Date();
+            var idade = (ano.getFullYear()-nascimento)
+            if(idade >= 0 && idade<=140){
+                for (var i = 0 in botoes){ 
+                    if (botoes[i].checked){
+                        if (botoes[i].value == "F"){
+                            exibicao.innerHTML = 'Detectamos Mulher com '  + idade + ' anos <br>' + '<img src="img/mulher.png" alt="Madrugada" width="40%" height="40%" >' 
+                        }
+                        else{
+                            exibicao.innerHTML = 'Detectamos Homem com '  + idade + ' anos <br>' + '<img src="img/homem.png" alt="Madrugada" width="40%" height="40%" >' 
+                        }
+                    }
+                }
+            }
+            else{
+                alert("Verifique os dados e tente novamente..")
+                exibicao.innerHTML = ""
+            }
+
+            
+        }
+
+    </script>
+</body>
+</html>

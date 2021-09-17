@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <header>
+
+        </header>
+        <main>
+            <form method="POST">
+                <h1>Cadastro</h1>
+                <span>E-mail: </span>
+                <input onchange="Cadastrar()" onfocus="this.value=''" type="email" id="emailCadastro"/>
+                <h1>login</h1>
+                <span>E-mail: </span>
+                <input onchange="Login()" onfocus="this.value=''" type="email" id="emailLogin"/>
+            </form>
+        </main>
+        <footer>
+
+        </footer>
+        <script>
+            var listEmails = [];
+
+
+            function Cadastrar(){
+                var email = document.getElementById("emailCadastro").value
+                if(Verificar(email)){
+                    listEmails.push(email)
+                    alert("cadastrado com sucesso!")
+                }
+                else{
+                    alert("email ja cadastrado!")
+                }
+            }
+            function Login(){
+                var email = document.getElementById("emailLogin").value
+                if(Verificar(email)){
+                    alert("Email não encontrado! Por favor, cadastre!")
+                }
+                else{
+                    alert("Logado com sucesso!")
+                }
+            }
+            function Verificar(email){
+                
+                for(i=0;i<=listEmails.length;i++){
+                    if(listEmails[i]==email){
+                        
+                        return false
+                    }
+                }
+                return true
+            }
+            
+        </script>
+    </body>
+</html>
